@@ -144,7 +144,19 @@ export class IniciosesionComponent {
     .then(res => {
       alert('¡Se pudo ingresar con éxito :)!');
 
-      this.servicioRutas.navigate(['/inicio']);
+      //
+      this.servicioAuth.setUsuarioRol(usuarioData.rol)
+
+      if(usuarioData.rol === "admin"){
+        console.log("inicio de administrador");
+        // Si es administrador, redirecciona a la vista de "admin"
+        this.servicioRutas.navigate(['/admin']);
+      }else{
+        console.log("inicio de visitante");
+        //
+        this.servicioRutas.navigate(['/inicio']);
+      }
+
     })
     .catch(err => {
       alert('Hubo un problema al iniciar sesión :( '+ err);
