@@ -60,7 +60,7 @@ export class AuthService {
      * Retomamos del servicio FiresStore la coleccion de 'usuarios', buscamos una referencia en los emails registrados
      * y los comparamos con los que ingrese el usuario al iniciar sesion, y lo 
      */
-    return this.servicioFirestore.collection('usuario', ref => ref.where('email','==', email)).get().toPromise();
+    return this.servicioFirestore.collection('usuarios', ref => ref.where('email','==', email)).get().toPromise();
   }
   //FUNCION PARA OBTENER EL ROL DE USUARIO
   obtenerRol(uid: string): Observable<string | null> {
