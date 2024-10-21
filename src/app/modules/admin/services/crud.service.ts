@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { map } from 'rxjs';
 //importaciones para manejo de archivos y referencias
 import { getDownloadURL, getStorage, ref, UploadResult, uploadString, deleteObject} from 'firebase/storage'
@@ -118,7 +117,7 @@ nueva informacion
       //accede a storage (almacenamiento), ruta(carpeta) / nombre (nombreImagen)
       let referenciaImagen = ref(this.storage,ruta +'/' + nombre);
       //Asignarle a la respuesta la informacion de las imagenes subidas 
-      this.respuesta = await uploadString(referenciaImagen,nombre, 'data_url')
+      this.respuesta = await uploadString(referenciaImagen,imagen, 'data_url')
       .then(resp => {
         return resp;
       })
